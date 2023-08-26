@@ -16,21 +16,21 @@ module.exports = {
   theme: {
     spacing: {
       px: '1px',
-      ...range(0, 900).reduce((acc, i) => {
+      ...range(0, screenSizes.laptop).reduce((acc, i) => {
         acc[i] = `${i}px`;
         return acc;
       }, {}),
     },
     maxWidth: {
       px: '1px',
-      ...range(1, 900).reduce((acc, i) => {
+      ...range(1, screenSizes.laptop).reduce((acc, i) => {
         acc[i] = `${i}px`;
         return acc;
       }, {}),
     },
     minWidth: {
       px: '1px',
-      ...range(1, 800).reduce((acc, i) => {
+      ...range(1, screenSizes.laptop).reduce((acc, i) => {
         acc[i] = `${i}px`;
         return acc;
       }, {}),
