@@ -23,6 +23,9 @@ export class PrimaInfrastructure {
     return this._client;
   }
 
+  /**
+   * 一覧取得（一覧と件数を同時に取得する）
+   */
   async customFindMany<
     ModelName extends KeyType<{
       [K in keyof PrismaClient]: PrismaClient[K] extends {
