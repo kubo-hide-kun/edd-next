@@ -15,4 +15,9 @@ export type Many<T> = {
   size: number;
   page: number;
   total: number;
-}
+};
+
+export type ErrorResult = {
+  httpStatus: number;
+  message: string;
+};

@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import type { ErrorResult } from '~/types/api';
 
 export namespace CustomNextApi {
   export type Request<
@@ -24,7 +25,7 @@ export namespace CustomNextApi {
     } = {
       response: unknown;
     }
-  > = NextApiResponse<T['response']>;
+  > = NextApiResponse<T['response'] | ErrorResult>;
 
   export type Handler<
     T extends {
