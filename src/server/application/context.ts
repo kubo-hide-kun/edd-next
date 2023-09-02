@@ -1,12 +1,19 @@
 import { dayjs } from '~/utils/dayjs';
 
-type Config = {};
+type Config = {
+  ipAddress?: string;
+  authorization?: {
+    userId: string;
+  };
+};
 
 export class Context {
-  constructor() {}
+  constructor(config: Config) {
+    this._config = config;
+  }
 
-  static create(): Context {
-    const context = new Context();
+  static create(...params: ConstructorParameters<typeof Context>): Context {
+    const context = new Context(...params);
     context.init();
     return context;
   }

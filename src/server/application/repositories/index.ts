@@ -21,3 +21,11 @@ export class Repository {
     throw error;
   }
 }
+
+export namespace Repository {
+  export type Builder = (context: Readonly<Context>) => Repository;
+
+  export const build = (_context: Readonly<Context>) => {
+    return {};
+  };
+}

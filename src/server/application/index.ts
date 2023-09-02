@@ -1,6 +1,6 @@
 import { Context } from '~/server/application/context';
 
-class Application {
+export class Application {
   private _context: Context;
 
   constructor(...params: Parameters<typeof Context.create>) {
@@ -11,5 +11,3 @@ class Application {
     return this._context;
   }
 }
-
-export const application = new Application();
