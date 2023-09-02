@@ -1,4 +1,7 @@
+import { DeleteApiInterface } from '~/schemas/apis/delete';
 import { GetApiInterface } from '~/schemas/apis/get';
+import { PostApiInterface } from '~/schemas/apis/post';
+import { PutApiInterface } from '~/schemas/apis/put';
 import { Application } from '~/server/application';
 import { CustomNextApi } from '~/server/handlers/utils/next-api';
 import { CustomNextConnect } from '~/server/handlers/utils/next-connect';
@@ -8,13 +11,13 @@ type ApiHandlers<PATH extends string> = {
     PATH extends keyof GetApiInterface ? GetApiInterface[PATH] : never
   > | null;
   post: CustomNextApi.Handler<
-    PATH extends keyof GetApiInterface ? GetApiInterface[PATH] : never
+    PATH extends keyof PostApiInterface ? PostApiInterface[PATH] : never
   > | null;
   put: CustomNextApi.Handler<
-    PATH extends keyof GetApiInterface ? GetApiInterface[PATH] : never
+    PATH extends keyof PutApiInterface ? PutApiInterface[PATH] : never
   > | null;
   del: CustomNextApi.Handler<
-    PATH extends keyof GetApiInterface ? GetApiInterface[PATH] : never
+    PATH extends keyof DeleteApiInterface ? DeleteApiInterface[PATH] : never
   > | null;
 };
 
