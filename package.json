@@ -29,7 +29,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": [
+    "src/**/*.{js,ts,tsx}": [
       "npm run test",
       "npm run type-check",
       "npm run lint",
