@@ -1,3 +1,5 @@
+import { Repository } from '~/server/application/repositories';
+import { Usecase } from '~/server/application/usecases';
 import { dayjs } from '~/utils/dayjs';
 
 type Config = {
@@ -29,12 +31,22 @@ export class Context {
   }
 
   private _logger!: unknown;
-  get logger(): unknown {
+  get logger() {
     return this._logger;
   }
 
   private _now!: dayjs.Dayjs;
-  get now(): dayjs.Dayjs {
+  get now() {
     return this._now;
+  }
+
+  private usecases!: ReturnType<(typeof Usecase)['build']>;
+  get usecase() {
+    return this.usecases;
+  }
+
+  private repositories!: ReturnType<(typeof Repository)['build']>;
+  get repository() {
+    return this.repositories;
   }
 }
