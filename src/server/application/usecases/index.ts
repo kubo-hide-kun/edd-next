@@ -1,4 +1,5 @@
 import { Context } from '~/server/application/context';
+import { FindUserByLineIdUsecase } from '~/server/application/usecases/findUserByLineId';
 
 export class Usecase<OutPutData, InputData = undefined> {
   constructor(
@@ -49,7 +50,9 @@ export namespace Usecase {
     context: Readonly<Context>
   ) => Usecase<OutPutData, InputData>;
 
-  export const build = (_context: Readonly<Context>) => {
-    return {};
+  export const build = (context: Readonly<Context>) => {
+    return {
+      findUserByLineIdUsecase: FindUserByLineIdUsecase.create(context),
+    };
   };
 }

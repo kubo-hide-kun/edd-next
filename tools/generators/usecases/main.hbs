@@ -1,0 +1,20 @@
+import { Usecase } from '~/server/application/usecases';
+
+type Input = unknown;
+type Output = unknown;
+
+export namespace {{pascalCase name}}Usecase {
+  export const create: Usecase.Creator<Output, Input> = (context) => {
+    const {} = context.repositories;
+
+    const usecase = Usecase.create<Output, Input>(
+      '{{name}}',
+      false,
+      async () => {
+        return {};
+      }
+    );
+
+    return usecase;
+  };
+}

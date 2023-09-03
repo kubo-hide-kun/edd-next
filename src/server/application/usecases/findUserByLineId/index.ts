@@ -6,7 +6,7 @@ export namespace FindUserByLineIdUsecase {
     const { user: userRepository } = context.repositories;
 
     const usecase = Usecase.create<User, string>(
-      'FindUserByLineId',
+      'findUserByLineId',
       false,
       async (lineId) => {
         const user = await userRepository.getOne({ lineId });
