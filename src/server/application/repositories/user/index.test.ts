@@ -8,7 +8,7 @@ import { dayjs } from '~/utils/dayjs';
 const now = dayjs('2023-09-03T11:13:00.000Z').tz();
 
 const context = {
-  infrastructure: {
+  infrastructures: {
     lineBot: {
       client: {
         getProfile: async (_lineId: string): Promise<LineUserProfile> => {

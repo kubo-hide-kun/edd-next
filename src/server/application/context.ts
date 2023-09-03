@@ -32,9 +32,9 @@ export class Context {
   public init(): void {
     this._logger = null;
     this._now = dayjs().tz();
-    this.infrastructures = Infrastructure.build(infrastructureConfig);
-    this.repositories = Repository.build(this);
-    this.usecases = Usecase.build(this);
+    this._infrastructures = Infrastructure.build(infrastructureConfig);
+    this._repositories = Repository.build(this);
+    this._usecases = Usecase.build(this);
   }
 
   private _config!: Config;
@@ -47,9 +47,9 @@ export class Context {
     return this._logger;
   }
 
-  private infrastructures!: ReturnType<(typeof Infrastructure)['build']>;
-  get infrastructure() {
-    return this.infrastructures;
+  private _infrastructures!: ReturnType<(typeof Infrastructure)['build']>;
+  get infrastructures() {
+    return this._infrastructures;
   }
 
   private _now!: dayjs.Dayjs;
@@ -57,13 +57,13 @@ export class Context {
     return this._now;
   }
 
-  private usecases!: ReturnType<(typeof Usecase)['build']>;
-  get usecase() {
-    return this.usecases;
+  private _usecases!: ReturnType<(typeof Usecase)['build']>;
+  get usecases() {
+    return this._usecases;
   }
 
-  private repositories!: ReturnType<(typeof Repository)['build']>;
-  get repository() {
-    return this.repositories;
+  private _repositories!: ReturnType<(typeof Repository)['build']>;
+  get repositories() {
+    return this._repositories;
   }
 }

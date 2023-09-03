@@ -45,7 +45,7 @@ export class Usecase<OutPutData, InputData = undefined> {
 }
 
 export namespace Usecase {
-  export type Builder<OutPutData, InputData = undefined> = (
+  export type Creator<OutPutData, InputData = undefined> = (
     context: Readonly<Context>
   ) => Usecase<OutPutData, InputData>;
 

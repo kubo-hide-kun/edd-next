@@ -13,7 +13,7 @@ export class UserRepository extends Repository {
   }
 
   public async getOne(conditions: Partial<Pick<User.Dto, 'id' | 'lineId'>>) {
-    const { lineBot, prisma } = this.context.infrastructure;
+    const { lineBot, prisma } = this.context.infrastructures;
 
     const found = await prisma.client.user.findUnique({
       where: conditions,
