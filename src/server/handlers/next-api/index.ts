@@ -116,10 +116,18 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
     return connect;
   }
 
+  /**
+   * @description
+   * next-connectのインスタンスを作成するためのメソッドです。
+   */
   public createConnect(...params: Parameters<typeof CustomNextConnect.create>) {
     return this.__createConnect(params, this.connectHandlers);
   }
 
+  /**
+   * @description
+   * next-connectのインスタンスを作成するためのメソッドです。
+   */
   public createIndividualConnect(
     ...params: Parameters<typeof CustomNextConnect.create>
   ) {
