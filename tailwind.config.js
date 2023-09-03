@@ -36,6 +36,7 @@ module.exports = {
       }, {}),
     },
     fontSize: {
+      none: '0px',
       xxs: '10px',
       xs: '12px',
       'sm-mini': '13px',
@@ -53,14 +54,52 @@ module.exports = {
       '9xl': '96px',
     },
     screens: screenSizes,
-    extend: {
-      colors: {
-        line: {
-          green: {
-            DEFAULT: 'var(--line-green)',
-            dark: 'var(--line-green-dark)',
-          },
+    colors: {
+      transparent: 'transparent',
+      /* ブランドカラー */
+      brand: {
+        cyan: {
+          DEFAULT: 'var(--brand-cyan)',
+          light: 'var(--brand-cyan-light)',
+          bright: 'var(--brand-cyan-bright)',
         },
+      },
+      /* ベースカラー: ブラック */
+      black: {
+        DEFAULT: 'var(--black-default)',
+      },
+      /* ベースカラー: グレー */
+      gray: {
+        dark: 'var(--gray-dark)',
+        DEFAULT: 'var(--gray-default)',
+        light: 'var(--gray-light)',
+      },
+      /* ベースカラー: ブルー */
+      blue: {
+        deep: 'var(--blue-deep)',
+        dark: 'var(--blue-dark)',
+        DEFAULT: 'var(--blue-default)',
+        light: 'var(--blue-light)',
+        sky: 'var(--blue-sky)',
+      },
+      /* ベースカラー: ホワイト */
+      white: {
+        DEFAULT: 'var(--white-default)',
+        cream: 'var(--white-cream)',
+        smoke: 'var(--white-smoke)',
+        reef: 'var(--white-reef)',
+      },
+      /* 表現色 */
+      expressive: {
+        red: 'var(--expressive-red)',
+        orange: 'var(--expressive-orange)',
+        pink: 'var(--expressive-pink)',
+        green: 'var(--expressive-green)',
+      },
+    },
+    extend: {
+      backgroundImage: {
+        'brand-gradient-cyan': 'linear-gradient(270deg, var(--brand-cyan-bright) 0%, var(--brand-cyan-dark) 100%)',
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
