@@ -11,6 +11,7 @@ export class LineBotInfrastructure {
         channelSecret: config.line.channelSecret,
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
   }

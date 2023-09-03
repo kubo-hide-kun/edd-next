@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/no-namespace': 'off',
     'no-empty-function': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '_' }],
+    'no-console': 'error',
     'import/no-duplicates': 'error',
     'import/order': [
       'error',

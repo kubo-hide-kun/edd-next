@@ -11,8 +11,6 @@ export class LineUserApi extends Api<typeof PATH, typeof INDIVIDUAL_PATH> {
 
 const lineUserApi = new LineUserApi();
 
-console.log('userApi', lineUserApi.individualConnectHandlers);
-
 lineUserApi.individualConnectHandlers.get = async (request, response) => {
   const { lineId } = request.query;
   if (!lineId) {
