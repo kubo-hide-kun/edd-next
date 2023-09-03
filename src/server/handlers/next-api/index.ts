@@ -24,6 +24,19 @@ type ApiHandlers<PATH extends string> = {
 export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
   public application: Application;
 
+  public connectHandlers: ApiHandlers<PATH> = {
+    get: null,
+    post: null,
+    put: null,
+    del: null,
+  };
+  public individualConnectHandlers: ApiHandlers<INDIVIDUAL_PATH> = {
+    get: null,
+    post: null,
+    put: null,
+    del: null,
+  };
+
   constructor(
     protected name: string,
     protected path: PATH,
@@ -43,16 +56,7 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
       ipAddress,
       authorization,
     });
-    this.connectHandlers = {
-      get: null,
-      post: null,
-      put: null,
-      del: null,
-    };
   }
-
-  public connectHandlers: ApiHandlers<PATH>;
-  public individualConnectHandlers: ApiHandlers<INDIVIDUAL_PATH>;
 
   private __createConnect<PATH extends string>(
     params: Parameters<typeof CustomNextConnect.create>,

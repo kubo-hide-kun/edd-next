@@ -1,5 +1,5 @@
-import { Repository } from '~/server/application/repositories';
-import { Usecase } from '~/server/application/usecases';
+import { build as buildRepositories } from '~/server/application/repositories/build';
+import { build as buildUsecases } from '~/server/application/usecases/build';
 import { Infrastructure } from '~/server/infrastructures';
 import { dayjs } from '~/utils/dayjs';
 
@@ -33,8 +33,8 @@ export class Context {
     this._logger = null;
     this._now = dayjs().tz();
     this._infrastructures = Infrastructure.build(infrastructureConfig);
-    this._repositories = Repository.build(this);
-    this._usecases = Usecase.build(this);
+    this._repositories = buildRepositories(this);
+    this._usecases = buildUsecases(this);
   }
 
   private _config!: Config;
@@ -57,12 +57,12 @@ export class Context {
     return this._now;
   }
 
-  private _usecases!: ReturnType<(typeof Usecase)['build']>;
+  private _usecases!: ReturnType<typeof buildUsecases>;
   get usecases() {
     return this._usecases;
   }
 
-  private _repositories!: ReturnType<(typeof Repository)['build']>;
+  private _repositories!: ReturnType<typeof buildRepositories>;
   get repositories() {
     return this._repositories;
   }

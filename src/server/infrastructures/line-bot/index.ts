@@ -5,10 +5,14 @@ export class LineBotInfrastructure {
   private _client: Client;
 
   constructor({ config }: Infrastructure) {
-    this._client = new Client({
-      channelAccessToken: config.line.channelAccessToken,
-      channelSecret: config.line.channelSecret,
-    });
+    try {
+      this._client = new Client({
+        channelAccessToken: config.line.channelAccessToken,
+        channelSecret: config.line.channelSecret,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   static create(
