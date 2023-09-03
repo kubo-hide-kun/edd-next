@@ -1,3 +1,5 @@
+import { User } from '~/schemas/entities/User';
+
 interface BaseGetApiInterface {
   [path: string]: {
     query: Record<string, unknown>;
@@ -7,10 +9,12 @@ interface BaseGetApiInterface {
 }
 
 export interface GetApiInterface extends BaseGetApiInterface {
-  '/api/user': {
-    query: {};
+  '/api/user/line/[lineId]': {
+    query: {
+      lineId: string;
+    };
     response: {
-      status: 'ok';
+      user: User.Dto;
     };
   };
   '/api/development/health-check': {

@@ -22,7 +22,7 @@ type ApiHandlers<PATH extends string> = {
 };
 
 export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
-  application: Application;
+  public application: Application;
 
   constructor(
     protected name: string,
