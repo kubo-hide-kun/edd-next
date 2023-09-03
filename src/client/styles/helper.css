@@ -1,0 +1,9 @@
+.service-pointer {
+  cursor: pointer;
+  transition-duration: 200ms;
+  transition-property: opacity;
+}
+
+.service-pointer:hover {
+  opacity: 0.5;
+}
