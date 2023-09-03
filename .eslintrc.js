@@ -46,6 +46,7 @@ module.exports = {
     'no-empty-function': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '_' }],
     'no-console': 'error',
+    'tailwindcss/no-custom-classname': 'off',
     'import/no-duplicates': 'error',
     'import/order': [
       'error',
