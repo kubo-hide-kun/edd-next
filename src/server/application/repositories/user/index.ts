@@ -30,9 +30,9 @@ export class UserRepository extends Repository {
       lineId: found.lineId,
       lineDisplayName: displayName,
       ableToReceiveMessage: found.ableToReceiveMessage,
-      approveUpdateTermsAt: found.approveUpdateTermsAt.toISOString(),
-      createdAt: found.createdAt.toISOString(),
-      updatedAt: found.updatedAt.toISOString(),
+      approveUpdateTermsAt: found.approveUpdateTermsAt.toString(),
+      createdAt: found.createdAt.toString(),
+      updatedAt: found.updatedAt.toString(),
     });
 
     return user;

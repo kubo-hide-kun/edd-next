@@ -16,13 +16,7 @@ export class User extends Entity<User.Dto> {
     this.lineId = dto.lineId;
     this.lineDisplayName = dto.lineDisplayName;
     this.ableToReceiveMessage = dto.ableToReceiveMessage;
-
-    const approveUpdateTermsAt = createSafeDayjs(dto.approveUpdateTermsAt);
-    if (!approveUpdateTermsAt.isValid()) {
-      throw new Error(
-        `invalid approveUpdateTermsAt ${dto.approveUpdateTermsAt}`
-      );
-    }
+    this.approveUpdateTermsAt = createSafeDayjs(dto.approveUpdateTermsAt);
 
     const createdAt = createSafeDayjs(dto.createdAt);
     if (!createdAt.isValid()) {
@@ -34,6 +28,7 @@ export class User extends Entity<User.Dto> {
     if (!updatedAt.isValid()) {
       throw new Error(`invalid updatedAt ${dto.updatedAt}`);
     }
+    this.updatedAt = updatedAt;
   }
 
   static create(...params: ConstructorParameters<typeof User>) {

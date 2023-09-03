@@ -16,6 +16,7 @@ model User {
   ableToReceiveMessage      Boolean
   createdAt                  DateTime                @default(now())
   updatedAt                 DateTime                @updatedAt
+  approveUpdateTermsAt      DateTime?
 
   @@index(createdAt)
   @@map("users")
