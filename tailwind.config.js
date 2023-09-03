@@ -2,12 +2,18 @@
 const path = require('path');
 const range = require('lodash/range');
 
+
 const screenSizes = {
-  'smartphone-lg': '428px',
-  tablet: '640px',
-  laptop: '1024px',
-  desktop: '1280px',
+  'smartphone-lg': 428,
+  tablet: 640,
+  laptop: 1024,
+  desktop: 1280,
 };
+
+const screenSizesStr = Object.keys(screenSizes).reduce((acc, key) => {
+  acc[key] = `${screenSizes[key]}px`;
+  return acc;
+}, {});
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -53,7 +59,7 @@ module.exports = {
       '8xl': '80px',
       '9xl': '96px',
     },
-    screens: screenSizes,
+    screens: screenSizesStr,
     colors: {
       transparent: 'transparent',
       /* ブランドカラー */

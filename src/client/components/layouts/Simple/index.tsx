@@ -10,14 +10,14 @@ export const SimpleLayout: FC<{
   return (
     <>
       <CommonHead pageTitle={pageTitle} />
-      <main className="relative flex w-screen flex-col items-center bg-white">
+      <main className="relative flex w-screen flex-col items-center bg-white-smoke">
         <div
-          className="max-w-390 relative w-full"
+          className="relative w-full max-w-390"
           style={{
             boxShadow: '0px 1px 44px 0px #0000001A',
           }}
         >
-          <div className="relative w-full overflow-hidden bg-white">
+          <div className="relative min-h-screen w-full overflow-hidden bg-white">
             {children}
           </div>
         </div>
