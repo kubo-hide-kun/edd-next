@@ -93,6 +93,7 @@ module.exports = {
         DEFAULT: 'var(--white-default)',
         cream: 'var(--white-cream)',
         smoke: 'var(--white-smoke)',
+        salmon: 'var(--white-salmon)',
         reef: 'var(--white-reef)',
       },
       /* 表現色 */

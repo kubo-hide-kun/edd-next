@@ -10,7 +10,7 @@ export const SimpleLayout: FC<{
   return (
     <>
       <CommonHead pageTitle={pageTitle} />
-      <main className="relative flex w-screen flex-col items-center bg-white-smoke">
+      <main className="relative flex w-screen flex-col items-center bg-white-salmon">
         <div
           className="relative w-full max-w-390"
           style={{
