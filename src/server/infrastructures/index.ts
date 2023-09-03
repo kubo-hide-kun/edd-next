@@ -19,7 +19,7 @@ export class Infrastructure {
     this._config = config;
   }
 
-  static create(
+  static build(
     ...params: ConstructorParameters<typeof Infrastructure>
   ): Infrastructure {
     const infrastructure = new Infrastructure(...params);

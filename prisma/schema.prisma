@@ -11,5 +11,12 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id                        String                  @id @db.Char(36)
+  lineId                    String                  @unique
+  ableToReceiveMessage      Boolean
+  createdAt                  DateTime                @default(now())
+  updatedAt                 DateTime                @updatedAt
+
+  @@index(createdAt)
+  @@map("users")
 }

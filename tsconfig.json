@@ -5,7 +5,7 @@
       "~/*": ["src/*"],
       "@prisma-generated": ["prisma/__generated__"]
     },
-    "target": "es5",
+    "target": "ES5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

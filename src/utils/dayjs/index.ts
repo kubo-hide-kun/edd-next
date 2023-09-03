@@ -17,7 +17,9 @@ dayjs.locale('ja');
 /**
  * NOTE: dayjsの引数に不正な値が渡された場合にnullを返す
  */
-const createSafeDayjs = (...args: Parameters<typeof dayjs>) => {
+const createSafeDayjs = (
+  ...args: Parameters<typeof dayjs>
+): dayjs.Dayjs | null => {
   try {
     const dayjsInstance = dayjs(...args);
     if (!dayjsInstance.isValid()) {

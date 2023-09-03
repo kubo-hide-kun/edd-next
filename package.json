@@ -31,7 +31,7 @@
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
       "npm run test",
-      "npm run type-check",
+      "bash -c 'tsc --noEmit --project tsconfig.json'",
       "npm run lint",
       "npm run format"
     ]
