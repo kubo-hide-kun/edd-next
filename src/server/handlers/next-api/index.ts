@@ -21,8 +21,27 @@ type ApiHandlers<PATH extends string> = {
   > | null;
 };
 
+/**
+ * @description
+ * このクラスは、APIのハンドラを作成するためのクラスです。
+ * リソースごとに1つのインスタンスを作成してください。
+ *
+ * PATH: APIのパスを表す文字列の型です（例: '/api/users'）
+ * INDIVIDUAL_PATH: 個別のAPIのパスを表す文字列の型です（例: '/api/users/[userId]'）
+ */
 export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
   public application: Application;
+
+  /**
+   * @description
+   * このプロパティは、APIのハンドラ(PATH)を格納するためのプロパティです。
+   * 追加したいハンドラを、このプロパティに格納してください。
+   *
+   * @example
+   * userApi.connectHandlers.get = async (request, response) => {
+   *  // ...
+   * }
+   */
 
   public connectHandlers: ApiHandlers<PATH> = {
     get: null,
@@ -30,6 +49,17 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
     put: null,
     del: null,
   };
+
+  /**
+   * @description
+   * このプロパティは、APIのハンドラ(INDIVIDUAL_PATH)を格納するためのプロパティです。
+   * 追加したいハンドラを、このプロパティに格納してください。
+   *
+   * @example
+   * userApi.individualConnectHandlers.get = async (request, response) => {
+   *   // ...
+   * }
+   */
   public individualConnectHandlers: ApiHandlers<INDIVIDUAL_PATH> = {
     get: null,
     post: null,
@@ -43,6 +73,11 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
     protected individualPath: INDIVIDUAL_PATH
   ) {}
 
+  /**
+   * @description
+   * このメソッドは、APIのハンドラを初期化するためのメソッドです。
+   * APIのハンドラ内の処理で、このメソッドを必ず呼び出してください。
+   */
   public init({
     ipAddress,
     authorization,
@@ -58,9 +93,9 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
     });
   }
 
-  private __createConnect<PATH extends string>(
+  private __createConnect<__PATH extends string>(
     params: Parameters<typeof CustomNextConnect.create>,
-    handlers: ApiHandlers<PATH>
+    handlers: ApiHandlers<__PATH>
   ) {
     const connect = CustomNextConnect.create(...params);
     const { get, post, put, del } = handlers;

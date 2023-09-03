@@ -10,12 +10,20 @@ export class Usecase<OutPutData, InputData = undefined> {
     private readonly __logger?: { error: (...args: unknown[]) => void }
   ) {}
 
+  /**
+   * @description
+   * このメソッドは、usecaseを生成するためのファクトリメソッドです。
+   */
   static create<OutPutData, InputData = undefined>(
     ...params: ConstructorParameters<typeof Usecase<OutPutData, InputData>>
   ) {
     return new Usecase<OutPutData, InputData>(...params);
   }
 
+  /**
+   * @description
+   * このメソッドは、usecase内でエラーを発生させるためのメソッドです。
+   */
   static throwException(message: string, referenceInfo?: unknown): never {
     const error = new Error(
       JSON.stringify({

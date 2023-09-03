@@ -12,6 +12,9 @@ export class UserRepository extends Repository {
     return repository;
   }
 
+  /**
+   * @description ユーザーを 1 件取得する
+   */
   public async getOne(conditions: Partial<Pick<User.Dto, 'id' | 'lineId'>>) {
     const { lineBot, prisma } = this.context.infrastructures;
 

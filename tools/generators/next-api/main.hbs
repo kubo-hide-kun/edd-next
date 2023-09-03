@@ -1,0 +1,17 @@
+import { Api } from '~/server/handlers/next-api';
+
+export const PATH = '{{path}}' as const;
+const INDIVIDUAL_PATH = '{{path}}' as const;
+
+export class {{pascalCase name}}Api extends Api<typeof PATH, typeof INDIVIDUAL_PATH> {
+  constructor() {
+    super('{{name}}Api', PATH, INDIVIDUAL_PATH);
+  }
+}
+
+const {{name}}Api = new {{pascalCase name}}Api();
+
+const connect = {{name}}Api.createConnect();
+const individualConnect = {{name}}Api.createIndividualConnect();
+
+export { connect, individualConnect };
