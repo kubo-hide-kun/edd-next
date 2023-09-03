@@ -1,4 +1,5 @@
 import { Context } from '~/server/application/context';
+import { UserRepository } from '~/server/application/repositories/user';
 
 export class Repository {
   constructor(protected name: string, protected context: Readonly<Context>) {}
@@ -18,7 +19,9 @@ export class Repository {
 export namespace Repository {
   export type Builder = (context: Readonly<Context>) => Repository;
 
-  export const build = (_context: Readonly<Context>) => {
-    return {};
+  export const build = (context: Readonly<Context>) => {
+    return {
+      user: UserRepository.create(context),
+    };
   };
 }

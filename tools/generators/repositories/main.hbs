@@ -1,0 +1,13 @@
+import { Context } from '~/server/application/context';
+import { Repository } from '~/server/application/repositories';
+
+export class {{pascalCase name}}Repository extends Repository {
+  constructor(context: Readonly<Context>) {
+    super('{{pascalCase name}}Repository', context);
+  }
+
+  static create(...params: ConstructorParameters<typeof {{pascalCase name}}Repository>) {
+    const repository = new {{pascalCase name}}Repository(...params);
+    return repository;
+  }
+}
