@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
 import { NextPageWithLayout } from '~/types/next';
 
@@ -22,7 +23,7 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
   const getLayout = Component.getLayout || ((page) => page);
 
   const component = getLayout(
-    <>
+    <RecoilRoot>
       <Toaster position="top-center" />
       <SWRConfig
         value={{
@@ -32,7 +33,7 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
       >
         <Component {...pageProps} />
       </SWRConfig>
-    </>
+    </RecoilRoot>
   );
 
   return component;
