@@ -1,11 +1,11 @@
 import Script from 'next/script';
 import { FC, PropsWithChildren } from 'react';
-import { useLiffUserState } from '~/client/feature/liff/useLiff';
+import { useLiff } from '~/client/feature/liff/useLiff';
 
 const LiffScript: FC<{
   liffId: string;
 }> = ({ liffId }) => {
-  const { initialize } = useLiffUserState({
+  const { initialize } = useLiff({
     liffId,
   });
   return (
