@@ -5,7 +5,7 @@ import { createDynamicUrl } from '~/utils/url';
 export const useApplicationRouter = (key: keyof PageInterface) => {
   const router = useRouter();
 
-  const query = router.query as PageInterface[typeof key]['query'] & {
+  const query = router.query as Partial<PageInterface[typeof key]['query']> & {
     [key: string]: string | undefined;
   };
 

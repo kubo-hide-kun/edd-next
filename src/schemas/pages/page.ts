@@ -1,5 +1,7 @@
+import { ValueOf } from '~/types/object';
+
 type BasePageInterface = {
-  [path in keyof typeof PageInterface.PATHS]: {
+  [path in ValueOf<typeof PageInterface.PATHS>]: {
     path: path;
     query: Record<string, string>;
   };
