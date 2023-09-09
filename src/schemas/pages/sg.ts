@@ -1,29 +1,29 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { PageInterface } from '~/schemas/pages/page';
 import { ValueOf } from '~/types/object';
 
-type BaseSSRPageDefinition = {
+type BaseSGPageDefinition = {
   [path in keyof PageInterface]: {
     props: Record<string, unknown>;
   };
 };
 
-interface SSRPageDefinition extends BaseSSRPageDefinition {
-  [SSRPageInterface.PATHS.Root]: {
+interface SGPageDefinition extends BaseSGPageDefinition {
+  [SGPageInterface.PATHS.Root]: {
     props: {};
   };
 }
 
-export type SSRPageInterface = {
-  [path in keyof SSRPageDefinition]: {
-    GetServerSideProps: GetServerSideProps<
-      SSRPageDefinition[path]['props'],
+export type SGPageInterface = {
+  [path in keyof SGPageDefinition]: {
+    GetStaticProps: GetStaticProps<
+      SGPageDefinition[path]['props'],
       PageInterface[path]['query']
     >;
   };
 };
 
-export namespace SSRPageInterface {
+export namespace SGPageInterface {
   export const PATHS = {
     Root: PageInterface.PATHS.Root, // NOTE: サンプルなので定義しているが、実際は不要
   } as const satisfies Partial<
