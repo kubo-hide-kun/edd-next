@@ -21,11 +21,6 @@ lineUserApi.individualConnectHandlers.get = async (request, response) => {
     return;
   }
 
-  lineUserApi.init({
-    ipAddress: request.ipAddress,
-    authorization: request.authorization,
-  });
-
   const { findUserByLineIdUsecase } = lineUserApi.application.usecases;
   const found = await findUserByLineIdUsecase.invoke(lineId);
 

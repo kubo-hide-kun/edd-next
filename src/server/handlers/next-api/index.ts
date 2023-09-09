@@ -73,44 +73,43 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
     protected individualPath: INDIVIDUAL_PATH
   ) {}
 
-  /**
-   * @description
-   * このメソッドは、APIのハンドラを初期化するためのメソッドです。
-   * APIのハンドラ内の処理で、このメソッドを必ず呼び出してください。
-   */
-  public init({
-    ipAddress,
-    authorization,
-  }: {
-    ipAddress?: string;
-    authorization?: {
-      userId: string;
-    };
-  }): void {
+  private _init(request: CustomNextApi.Request): void {
     this.application = new Application({
-      ipAddress,
-      authorization,
+      ipAddress: request.ipAddress,
+      authorization: request.authorization,
     });
   }
 
-  private __createConnect<__PATH extends string>(
+  private _createConnect<_PATH extends string>(
     params: Parameters<typeof CustomNextConnect.create>,
-    handlers: ApiHandlers<__PATH>
+    handlers: ApiHandlers<_PATH>
   ) {
     const connect = CustomNextConnect.create(...params);
     const { get, post, put, del } = handlers;
 
     if (get) {
-      connect.get(get);
+      connect.get(async (request, response) => {
+        this._init(request);
+        await get(request, response);
+      });
     }
     if (post) {
-      connect.post(post);
+      connect.post(async (request, response) => {
+        this._init(request);
+        await post(request, response);
+      });
     }
     if (put) {
-      connect.put(put);
+      connect.put(async (request, response) => {
+        this._init(request);
+        await put(request, response);
+      });
     }
     if (del) {
-      connect.delete(del);
+      connect.delete(async (request, response) => {
+        this._init(request);
+        await del(request, response);
+      });
     }
 
     return connect;
@@ -121,7 +120,7 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
    * next-connectのインスタンスを作成するためのメソッドです。
    */
   public createConnect(...params: Parameters<typeof CustomNextConnect.create>) {
-    return this.__createConnect(params, this.connectHandlers);
+    return this._createConnect(params, this.connectHandlers);
   }
 
   /**
@@ -131,6 +130,6 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
   public createIndividualConnect(
     ...params: Parameters<typeof CustomNextConnect.create>
   ) {
-    return this.__createConnect(params, this.individualConnectHandlers);
+    return this._createConnect(params, this.individualConnectHandlers);
   }
 }
