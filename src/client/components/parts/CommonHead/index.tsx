@@ -3,8 +3,12 @@ import { FC } from 'react';
 import { Service } from '~/schemas/entities/Service';
 
 export const CommonHead: FC<{
-  pageTitle: string;
-}> = ({ pageTitle = `${Service.APP.name} | ${Service.APP.nameSuffix}` }) => {
+  pageTitle?: string;
+  isNoIndex?: boolean;
+}> = ({
+  pageTitle = `${Service.APP.name} | ${Service.APP.nameSuffix}`,
+  isNoIndex = false,
+}) => {
   return (
     <Head>
       {/* 一般 */}
@@ -15,7 +19,7 @@ export const CommonHead: FC<{
       <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="icon" href="/favicon.ico" />
-      <meta name="robot" content="noindex" />
+      {isNoIndex && <meta name="robots" content="noindex" />}
 
       {/* Open Graph */}
       <meta property="og:title" content={pageTitle} />

@@ -1,12 +1,11 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { CommonHead } from '~/client/components/parts/CommonHead';
 import { LayoutGetter } from '~/types/next';
 import { InferComponentPropsType } from '~/types/react';
 
-export const SimpleLayout: FC<{
-  children: React.ReactNode;
-  pageTitle?: string;
-}> = ({ pageTitle, children }) => {
+export const SimpleLayout: FC<
+  PropsWithChildren<InferComponentPropsType<typeof CommonHead>>
+> = ({ pageTitle, children }) => {
   return (
     <>
       <CommonHead pageTitle={pageTitle} />
@@ -29,7 +28,7 @@ export const SimpleLayout: FC<{
 export const createSimpleLayoutGetter = (
   options?: Omit<InferComponentPropsType<typeof SimpleLayout>, 'children'>
 ): LayoutGetter => {
-  const pageWithLayout = (page) => {
+  const pageWithLayout: LayoutGetter = (page) => {
     return <SimpleLayout {...options}>{page}</SimpleLayout>;
   };
   return pageWithLayout;
