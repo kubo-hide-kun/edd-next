@@ -2,10 +2,10 @@ import cookie from 'js-cookie';
 import { dayjs } from '~/utils/dayjs';
 
 export class Cookie {
-  constructor(private __appName: string) {}
+  constructor(private _appName: string) {}
 
-  private getSafeKey(key: string) {
-    return `${this.__appName}-${key}`;
+  private _getSafeKey(key: string) {
+    return `${this._appName}-${key}`;
   }
 
   public set(
@@ -14,18 +14,18 @@ export class Cookie {
     expiresSeconds: number,
     options?: Omit<cookie.CookieAttributes, 'expires'>
   ) {
-    return cookie.set(this.getSafeKey(key), value, {
+    return cookie.set(this._getSafeKey(key), value, {
       expires: dayjs().tz().add(expiresSeconds, 'seconds').toDate(),
       ...options,
     });
   }
 
   public get(key: string) {
-    return cookie.get(this.getSafeKey(key));
+    return cookie.get(this._getSafeKey(key));
   }
 
   public remove(key: string, options?: cookie.CookieAttributes) {
-    return cookie.remove(this.getSafeKey(key), options);
+    return cookie.remove(this._getSafeKey(key), options);
   }
 }
 

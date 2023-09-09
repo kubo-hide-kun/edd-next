@@ -2,11 +2,10 @@ import liff from '@line/liff';
 import { Liff } from '@line/liff/exports';
 import { LiffMockPlugin } from '@line/liff-mock';
 
-liff.use(new LiffMockPlugin());
+const liffMockPlugin = new LiffMockPlugin();
+liff.use(liffMockPlugin);
 
 export class LiffUser {
-  private readonly _liff: Liff;
-  private readonly _config: Parameters<Liff['init']>[0];
   isLoggedIn: boolean = false;
   userId: string = '';
   idToken: string = '';
@@ -14,10 +13,10 @@ export class LiffUser {
   pictureUrl?: string = undefined;
   statusMessage?: string = undefined;
 
-  constructor(liff: Liff, config: Parameters<Liff['init']>[0]) {
-    this._liff = liff;
-    this._config = config;
-  }
+  constructor(
+    private readonly _liff: Liff,
+    private readonly _config: Parameters<Liff['init']>[0]
+  ) {}
 
   static async create(...args: ConstructorParameters<typeof LiffUser>) {
     const instance = new LiffUser(...args);

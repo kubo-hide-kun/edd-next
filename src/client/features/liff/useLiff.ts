@@ -1,7 +1,7 @@
 import liff from '@line/liff';
 import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
-import { LiffUser } from '~/client/feature/liff';
+import { LiffUser } from '~/client/features/liff';
 
 const liffUserState = atom<LiffUser | null>({
   key: 'liffUserState',

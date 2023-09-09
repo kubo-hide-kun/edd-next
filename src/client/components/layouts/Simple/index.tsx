@@ -3,7 +3,7 @@ import { CommonHead } from '~/client/components/parts/CommonHead';
 import { LayoutGetter } from '~/types/next';
 import { InferComponentPropsType } from '~/types/react';
 
-export const SimpleLayout: FC<
+const SimpleLayout: FC<
   PropsWithChildren<InferComponentPropsType<typeof CommonHead>>
 > = ({ pageTitle, children }) => {
   return (

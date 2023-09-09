@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import { FC, PropsWithChildren } from 'react';
-import { useLiff } from '~/client/feature/liff/useLiff';
+import { useLiff } from '~/client/features/liff/useLiff';
 
 const LiffScript: FC<{
   liffId: string;
