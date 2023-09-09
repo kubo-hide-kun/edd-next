@@ -12,7 +12,9 @@ export const useApplicationRouter = (key: keyof PageInterface) => {
   const push = async <T extends keyof PageInterface>(
     path: T,
     args: {
-      query?: PageInterface[T]['query'];
+      query?: PageInterface[T]['query'] & {
+        [key: string]: string | undefined;
+      };
     }
   ) => {
     const url = createDynamicUrl(path, args.query);
@@ -23,7 +25,9 @@ export const useApplicationRouter = (key: keyof PageInterface) => {
   const replace = async <T extends keyof PageInterface>(
     path: T,
     args: {
-      query?: PageInterface[T]['query'];
+      query?: PageInterface[T]['query'] & {
+        [key: string]: string | undefined;
+      };
     }
   ) => {
     const url = createDynamicUrl(path, args.query);
@@ -34,7 +38,9 @@ export const useApplicationRouter = (key: keyof PageInterface) => {
   const prefetch = async <T extends keyof PageInterface>(
     path: T,
     args: {
-      query?: PageInterface[T]['query'];
+      query?: PageInterface[T]['query'] & {
+        [key: string]: string | undefined;
+      };
     }
   ) => {
     const url = createDynamicUrl(path, args.query);
