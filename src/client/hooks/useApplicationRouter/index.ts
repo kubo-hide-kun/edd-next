@@ -41,7 +41,7 @@ export const useApplicationRouter = (key: keyof PageInterface) => {
       query?: PageInterface[T]['query'] & {
         [key: string]: string | undefined;
       };
-    }
+    } = {}
   ) => {
     const url = createDynamicUrl(path, args.query);
     const result = await router.prefetch(url);

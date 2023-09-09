@@ -17,7 +17,7 @@ export const useGetApiData = <T extends keyof GetApiInterface>(
     config?: SWRConfiguration;
   } = {}
 ) => {
-  const url = createDynamicUrl(key as string, query);
+  const url = createDynamicUrl(key, query);
   return useSWR<GetApiInterface[T]['response'] | undefined, ErrorResult>(
     url,
     async (): Promise<GetApiInterface[T]['response'] | undefined> => {
