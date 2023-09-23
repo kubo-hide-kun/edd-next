@@ -1,19 +1,20 @@
 :root {
   /* アクセントカラー */
-  --accent-primary: #06C755;
-  --accent-primary-sub: #D6FFE7;
-  --accent-secondary: #F07400;
+  --accent-primary: #06c755;
+  --accent-primary-sub: #d6ffe7;
+  --accent-secondary: #f07400;
 
   /* サーフェスカラー */
-  --surface-accent-1: #06C755;
-  --surface-accent-2: #47C77B;
-  --surface-accent-sub: #2E9E24;
-  --surface-base-1: #3F3F46;
-  --surface-base-2: #71717A;
-  --surface-base-3: #A1A1AA;
-  --surface-disabled: #D4D4D8;
+  --surface-accent-1: #06c755;
+  --surface-accent-2: #47c77b;
+  --surface-accent-sub: #2e9e24;
+  --surface-base-1: #3f3f46;
+  --surface-base-2: #71717a;
+  --surface-base-3: #a1a1aa;
+  --surface-disabled: #d4d4d8;
 
   /* 標準色 */
   --black-default: #000000;
   --white-default: #ffffff;
+  --gray-light: #f5f5f5;
 }
