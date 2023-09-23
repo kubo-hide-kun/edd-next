@@ -13,11 +13,7 @@ type Users = {
   isMe?: boolean;
 };
 
-type Props = {
-  users: Users[];
-};
-
-export const MemberList: FC<Props> = ({ users }) => {
+export const MemberList: FC<{ users: Users[] }> = ({ users }) => {
   return (
     <div className="h-full w-[var(--history-main-content-width)] overflow-hidden rounded-xl">
       <div className="service-timeline-scroll-bar h-full w-full overflow-y-auto overflow-x-hidden px-5 py-10">

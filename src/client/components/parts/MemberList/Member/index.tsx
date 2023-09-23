@@ -1,36 +1,29 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 type User = {
   name: string;
   icon: string;
 };
 
-type Props = {
+export const Member: FC<{
   user: User;
   price: number;
   lastPostedAt: string;
   isMe?: boolean;
-};
-
-export const Member: FC<Props> = ({
-  user,
-  price,
-  lastPostedAt,
-  isMe = false,
-}) => {
-  const priceStatus = () => {
+}> = ({ user, price, lastPostedAt, isMe = false }) => {
+  const priceStatus = useMemo(() => {
     if (price < 0) return 'minus';
     else if (price > 0) return 'plus';
     else return 'zero';
-  };
+  }, [price]);
 
-  const priceToString = () => {
+  const priceToString = useMemo(() => {
     if (price < 0) return `- ${Math.abs(price).toString()}`;
     else if (price > 0) return `+ ${price.toString()}`;
     else return '± 0';
-  };
+  }, [price]);
 
   return (
     <div
@@ -56,12 +49,12 @@ export const Member: FC<Props> = ({
       </div>
       <span
         className={classNames('text-lg', {
-          'text-accent-primary': priceStatus() === 'minus',
-          'text-accent-secondary': priceStatus() === 'plus',
-          'text-surface-base-1': priceStatus() === 'zero',
+          'text-accent-primary': priceStatus === 'minus',
+          'text-accent-secondary': priceStatus === 'plus',
+          'text-surface-base-1': priceStatus === 'zero',
         })}
       >
-        {priceToString()}
+        {priceToString}
       </span>
       <span className="absolute bottom-10 right-15 text-xs text-surface-base-3">
         {lastPostedAt}
