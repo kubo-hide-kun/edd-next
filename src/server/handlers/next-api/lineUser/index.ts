@@ -12,7 +12,7 @@ export class LineUserApi extends Api<typeof PATH, typeof INDIVIDUAL_PATH> {
 const lineUserApi = new LineUserApi();
 
 lineUserApi.individualConnectHandlers.get = async (request, response) => {
-  const { lineUid: lineUid } = request.query;
+  const { lineUid } = request.query;
   if (!lineUid) {
     response.status(400).json({
       httpStatus: 400,
