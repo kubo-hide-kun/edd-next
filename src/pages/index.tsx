@@ -1,2 +1,2 @@
-import { RootPage } from '~/client/components/pages/Root';
-export default RootPage;
+import { LiffRootPage } from '~/client/components/pages/liff/Root';
+export default LiffRootPage;

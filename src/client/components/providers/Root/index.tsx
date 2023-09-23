@@ -1,9 +1,11 @@
 import { AppProps } from 'next/app';
-import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { FC, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useRecoilValue } from 'recoil';
 import { SWRConfig } from 'swr';
 import { LiffProvider } from '../Liff';
+import { liffUserState } from '~/client/features/liff/useLiff';
 import { NextPageWithLayout } from '~/types/next';
 
 /**
@@ -22,6 +24,16 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
   pageProps,
 }) => {
   const getLayout = Component.getLayout || ((page) => page);
+  const { isLoggedIn } = useRecoilValue(liffUserState);
+  const router = useRouter();
+  const path = router.asPath;
+
+  useEffect(() => {
+    // pathに"web"が含まれていないかつisLoggedInがfalseの場合、/webにリダイレクト
+    if (!path.includes('web') && !isLoggedIn) {
+      router.push('/web');
+    }
+  }, [path, isLoggedIn, router]);
 
   const component = getLayout(
     <RecoilRoot>
@@ -32,8 +44,9 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
           revalidateOnReconnect: false,
         }}
       >
-        <Component {...pageProps} />
-        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID}></LiffProvider>
+        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID}>
+          <Component {...pageProps} />
+        </LiffProvider>
       </SWRConfig>
     </RecoilRoot>
   );
