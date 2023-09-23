@@ -54,10 +54,10 @@ export const Dropdown: FC<{
         </button>
         <div
           className={classNames(
-            'absolute left-0 top-0 z-10 w-88 overflow-hidden rounded-md bg-white drop-shadow-lg transition-all duration-300',
+            'absolute left-0 top-0 z-10 flex w-88 flex-col justify-between overflow-hidden rounded-md bg-white drop-shadow-lg transition-all duration-300',
             {
-              visible: isOpen,
-              invisible: !isOpen,
+              'visible h-160 py-8': isOpen,
+              'invisible h-0': !isOpen,
             }
           )}
           role="none"
@@ -66,10 +66,8 @@ export const Dropdown: FC<{
             <button
               key={item.id}
               className={classNames(
-                'block w-full text-center text-sm text-surface-base-2 transition-all duration-300',
+                'block w-full py-6 text-center text-sm text-surface-base-2 transition-all duration-300',
                 {
-                  'h-36': isOpen,
-                  'h-0': !isOpen,
                   'bg-accent-primary-sub': item.id === selectedId,
                 }
               )}
