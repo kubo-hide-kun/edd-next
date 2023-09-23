@@ -1,2 +1,2 @@
-import { LiffRootPage } from '~/client/components/pages/liff/Root';
-export default LiffRootPage;
+import { WebRootPage } from '~/client/components/pages/Root';
+export default WebRootPage;

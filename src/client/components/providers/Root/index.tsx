@@ -1,11 +1,9 @@
 import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { RecoilRoot, useRecoilValue } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
 import { LiffProvider } from '../Liff';
-import { liffUserState } from '~/client/features/liff/useLiff';
 import { NextPageWithLayout } from '~/types/next';
 
 /**
@@ -24,22 +22,6 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
   pageProps,
 }) => {
   const getLayout = Component.getLayout || ((page) => page);
-  const { isLoggedIn } = useRecoilValue(liffUserState);
-  const router = useRouter();
-  const path = router.asPath;
-
-  useEffect(() => {
-    const VALIDATE_IGNORE: string[] = ['404', '500', 'web'];
-    const isValidatePage = (): boolean => {
-      return !VALIDATE_IGNORE.some((validatePath) =>
-        path.includes(validatePath)
-      );
-    };
-
-    if (!isLoggedIn && !isValidatePage()) {
-      router.push('/web');
-    }
-  }, [path, isLoggedIn, router]);
 
   const component = getLayout(
     <RecoilRoot>
