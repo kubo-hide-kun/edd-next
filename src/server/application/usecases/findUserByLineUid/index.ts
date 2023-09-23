@@ -11,7 +11,7 @@ export namespace FindUserByLineUidUsecase {
       async (lineUid) => {
         const user = await userRepository.getOne({ lineUid });
         if (!user) {
-          Usecase.throwException('user not found', { lineUid: lineUid });
+          Usecase.throwException('user not found', { lineUid });
         }
         return user;
       }
