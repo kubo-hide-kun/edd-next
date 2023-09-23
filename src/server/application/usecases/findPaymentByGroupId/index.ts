@@ -1,7 +1,7 @@
 import { HistoryEntity } from '~/domains/models/History';
 import { Usecase } from '~/server/application/usecases';
 
-export namespace CreatePaymentUsecase {
+export namespace FindPaymentByGroupIdUsecase {
   export const create: Usecase.Creator<HistoryEntity[], string> = (context) => {
     const { history: historyRepository } = context.repositories;
 

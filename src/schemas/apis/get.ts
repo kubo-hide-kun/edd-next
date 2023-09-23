@@ -1,4 +1,5 @@
 import { UserEntity } from '~/domains/models/User';
+import { Payment } from '~/domains/services/optimizeService';
 import { ValueOf } from '~/types/object';
 
 type BaseGetApiInterface = {
@@ -25,12 +26,21 @@ export interface GetApiInterface extends BaseGetApiInterface {
       status: 'ok';
     };
   };
+  [GetApiInterface.PATHS.MyHistory]: {
+    query: {
+      lineUid: string;
+    };
+    response: {
+      payment: Payment[];
+    };
+  };
 }
 
 export namespace GetApiInterface {
   export const PATHS = {
     LineUser: '/api/user/line/[lineUid]',
     HealthCheck: '/api/development/health-check',
+    MyHistory: '/api/myhistory/[lineUid]',
   } as const;
   export type PATHS = keyof typeof PATHS;
 }
