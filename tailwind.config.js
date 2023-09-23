@@ -88,6 +88,10 @@ module.exports = {
       black: {
         DEFAULT: 'var(--black-default)',
       },
+      /* ベースカラー: グレー */
+      gray: {
+        light: 'var(--gray-light)',
+      },
       /* ベースカラー: ホワイト */
       white: {
         DEFAULT: 'var(--white-default)',
