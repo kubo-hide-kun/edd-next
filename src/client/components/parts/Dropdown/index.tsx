@@ -43,7 +43,7 @@ export const Dropdown: FC<{
     <div className={classNames('relative inline-block text-left', className)}>
       <div className="relative w-88">
         <button
-          className="hover:bg-gray-50 inline-flex w-full items-center justify-end space-x-4 rounded-md bg-white px-4 py-2 text-sm font-medium text-surface-base-2"
+          className="hover:bg-gray-50 inline-flex w-full items-center justify-end space-x-4 rounded-md bg-white px-4 py-2 text-sm text-surface-base-2"
           id="options-menu"
           aria-haspopup="true"
           aria-expanded="true"
@@ -54,9 +54,9 @@ export const Dropdown: FC<{
         </button>
         <div
           className={classNames(
-            'absolute left-0 top-0 z-10 flex w-88 flex-col justify-between overflow-hidden rounded-md bg-white drop-shadow-lg transition-all duration-300',
+            'absolute left-0 top-32 z-10 flex w-88 flex-col justify-around overflow-hidden rounded-md border border-gray-light bg-white shadow-xl transition-all duration-300',
             {
-              'visible h-160 py-8': isOpen,
+              'visible h-160': isOpen,
               'invisible h-0': !isOpen,
             }
           )}
@@ -66,7 +66,7 @@ export const Dropdown: FC<{
             <button
               key={item.id}
               className={classNames(
-                'block w-full py-6 text-center text-sm text-surface-base-2 transition-all duration-300',
+                'block h-40 w-full text-center text-sm text-surface-base-2 transition-all duration-300',
                 {
                   'bg-accent-primary-sub': item.id === selectedId,
                 }
