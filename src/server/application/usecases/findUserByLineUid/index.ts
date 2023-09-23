@@ -9,7 +9,7 @@ export namespace FindUserByLineUidUsecase {
       'findUserByLineUid',
       false,
       async (lineUid) => {
-        const user = await userRepository.getOne({ lineUid: lineUid });
+        const user = await userRepository.getOne({ lineUid });
         if (!user) {
           Usecase.throwException('user not found', { lineUid: lineUid });
         }
