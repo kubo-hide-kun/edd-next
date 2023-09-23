@@ -1,4 +1,4 @@
-import { User } from '~/schemas/entities/User';
+import { UserEntity } from '~/domains/models/User';
 import { Context } from '~/server/application/context';
 import { Repository } from '~/server/application/repositories';
 
@@ -15,7 +15,9 @@ export class UserRepository extends Repository {
   /**
    * @description ユーザーを 1 件取得する
    */
-  public async getOne(conditions: Partial<Pick<User.Dto, 'id' | 'lineId'>>) {
+  public async getOne(
+    conditions: Partial<Pick<UserEntity.Dto, 'id' | 'lineId'>>
+  ) {
     const { lineBot, prisma } = this.context.infrastructures;
 
     const found = await prisma.client.user.findUnique({
@@ -28,7 +30,7 @@ export class UserRepository extends Repository {
 
     const { displayName } = await lineBot.client.getProfile(found.lineId);
 
-    const user = User.create({
+    const user = UserEntity.create({
       id: found.id,
       lineId: found.lineId,
       lineDisplayName: displayName,
