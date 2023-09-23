@@ -5,6 +5,7 @@
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "pre-commit": "lint-staged -v",
     "dev": "next",
+    "prebuild": "run-s generate",
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",

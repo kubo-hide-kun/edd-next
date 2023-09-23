@@ -8,12 +8,12 @@
   opacity: 0.5;
 }
 
-.lib-tab {
+.service-tab {
   height: 40px;
   position: relative;
 }
 
-.lib-tab:after {
+.service-tab:after {
   content: '';
   position: absolute;
   width: 50%;
@@ -25,6 +25,6 @@
   transition: all 0.2s 0s ease;
 }
 
-.lib-tab[data-status='1']:after {
+.service-tab[data-status='1']:after {
   transform: translateX(100%);
 }
