@@ -13,5 +13,6 @@ module.exports = {
   },
   images: {
     disableStaticImages: true, // importした画像の型定義設定を無効にする
+    domains: ['avatars.githubusercontent.com'],
   },
 };
