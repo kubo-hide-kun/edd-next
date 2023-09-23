@@ -112,4 +112,49 @@ export class HistoryRepository extends Repository {
 
     return history;
   }
+
+  /**
+   * @description 自身の立て替え履歴を全て取得する
+   */
+  public async getAllByUserId(userId: string) {
+    const { prisma } = this.context.infrastructures;
+
+    const found = await prisma.client.history.findMany({
+      include: { payeeHistories: true },
+      where: {
+        OR: [
+          {
+            payerId: userId,
+          },
+          {
+            payeeHistories: {
+              some: {
+                userId,
+              },
+            },
+          },
+        ],
+      },
+    });
+
+    if (!found) {
+      return null;
+    }
+
+    const histories = found.map((history) =>
+      HistoryEntity.create({
+        id: history.id,
+        lineGroupId: history.lineGroupId,
+        name: history.name,
+        summary: history.summary,
+        amount: history.amount,
+        payerId: history.payerId,
+        payeeIds: history.payeeHistories.map((payee) => payee.userId),
+        createdAt: history.createdAt.toString(),
+        updatedAt: history.updatedAt.toString(),
+      })
+    );
+
+    return histories;
+  }
 }
