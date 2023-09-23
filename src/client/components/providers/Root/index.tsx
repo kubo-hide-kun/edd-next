@@ -29,8 +29,14 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
   const path = router.asPath;
 
   useEffect(() => {
-    // pathに"web"が含まれていないかつisLoggedInがfalseの場合、/webにリダイレクト
-    if (!path.includes('web') && !isLoggedIn) {
+    const VALIDATE_IGNORE: string[] = ['404', '500', 'web'];
+    const isValidatePage = (): boolean => {
+      return !VALIDATE_IGNORE.some((validatePath) =>
+        path.includes(validatePath)
+      );
+    };
+
+    if (!isLoggedIn && !isValidatePage()) {
       router.push('/web');
     }
   }, [path, isLoggedIn, router]);
