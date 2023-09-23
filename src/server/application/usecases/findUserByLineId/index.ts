@@ -1,11 +1,11 @@
-import { User } from '~/schemas/entities/User';
+import { UserEntity } from '~/domains/models/User';
 import { Usecase } from '~/server/application/usecases';
 
 export namespace FindUserByLineIdUsecase {
-  export const create: Usecase.Creator<User, string> = (context) => {
+  export const create: Usecase.Creator<UserEntity, string> = (context) => {
     const { user: userRepository } = context.repositories;
 
-    const usecase = Usecase.create<User, string>(
+    const usecase = Usecase.create<UserEntity, string>(
       'findUserByLineId',
       false,
       async (lineId) => {

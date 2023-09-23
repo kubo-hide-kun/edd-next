@@ -11,3 +11,11 @@ export abstract class Entity<Dto> {
    */
   abstract get nonSensitiveDto(): Dto;
 }
+
+export abstract class ValueObject<Dto> {
+  /**
+   * @description
+   * このプロパティは、値オブジェクトのDTOを取得するためのプロパティです。
+   */
+  abstract get dto(): Dto;
+}
