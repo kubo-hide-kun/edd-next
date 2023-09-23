@@ -15,6 +15,9 @@ export namespace CreatePaymentUsecase {
         if (!history) {
           Usecase.throwException('history create error', { params });
         }
+
+        // TODO: グループ内でレスポンスとして，集計を返す
+
         return history;
       }
     );
