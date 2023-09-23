@@ -1,4 +1,5 @@
 import liff from '@line/liff';
+import { LiffMockPlugin } from '@line/liff-mock';
 import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
@@ -19,41 +20,48 @@ interface UseLiff {
   closeWindow: () => void;
 }
 
-export const liffUserState = atom<LiffUser | null>({
+export const liffUserState = atom<LiffUser>({
   key: 'liffUserState',
-  default: null,
+  default: {
+    isLoggedIn: false,
+    userId: '',
+    idToken: '',
+    displayName: '',
+  },
 });
 
 export const useLiff = (
   initConfig: Parameters<typeof liff.init>[0]
 ): UseLiff => {
   const [liffUser, setLiffUser] = useRecoilState(liffUserState);
-
   const initialize = useCallback(async () => {
     try {
-      await liff.init(initConfig);
-      if (liff.isLoggedIn()) {
-        const profile = await liff.getProfile();
-        setLiffUser({
-          isLoggedIn: true,
-          userId: profile.userId,
-          idToken: liff.getIDToken(),
-          displayName: profile.displayName,
-          pictureUrl: profile.pictureUrl,
-          statusMessage: profile.statusMessage,
-        });
+      if (process.env.NODE_ENV === 'development') {
+        liff.use(new LiffMockPlugin());
+        await liff.init({ liffId: initConfig.liffId, mock: true } as Parameters<
+          typeof liff.init
+        >[0]);
+        liff.login();
       } else {
-        setLiffUser({
-          isLoggedIn: false,
-          userId: '',
-          idToken: '',
-          displayName: '',
-        });
+        await liff.init({ liffId: initConfig.liffId });
       }
+      const profile = await liff.getProfile();
+      setLiffUser({
+        isLoggedIn: true,
+        userId: profile.userId,
+        idToken: liff.getIDToken(),
+        displayName: profile.displayName,
+        pictureUrl: profile.pictureUrl,
+        statusMessage: profile.statusMessage,
+      });
     } catch (error) {
-      setLiffUser(null);
       // eslint-disable-next-line no-console
-      console.error(error);
+      setLiffUser({
+        isLoggedIn: false,
+        userId: '',
+        idToken: '',
+        displayName: '',
+      });
     }
   }, [initConfig, setLiffUser]);
 

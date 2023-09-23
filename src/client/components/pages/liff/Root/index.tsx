@@ -4,12 +4,13 @@ import { liffUserState } from '~/client/features/liff/useLiff';
 import { NextPageWithLayout } from '~/types/next';
 
 const PageComponent: NextPageWithLayout = () => {
-  const LineUser = useRecoilValue(liffUserState);
+  const { userId, displayName, isLoggedIn } = useRecoilValue(liffUserState);
   return (
     <div>
       <div>liff root</div>
-      <p>{LineUser?.userId || 'noId'}</p>
-      <p>{LineUser?.displayName || 'noName'}</p>
+      <p>{userId || 'No Id'}</p>
+      <p>{displayName || 'No Name'}</p>
+      <p>{isLoggedIn ? 'true' : 'false'}</p>
     </div>
   );
 };
