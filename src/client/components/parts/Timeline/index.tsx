@@ -9,14 +9,13 @@ type User = {
 type Post = {
   user: User;
   text: string;
+  createdAt: string;
   isMe?: boolean;
 };
 
-type Props = {
+export const Timeline: FC<{
   posts: Post[];
-};
-
-export const Timeline: FC<Props> = ({ posts }) => {
+}> = ({ posts }) => {
   return (
     <div className="h-full w-[var(--history-main-content-width)] overflow-hidden rounded-xl bg-gray-light">
       <div className="service-timeline-scroll-bar h-full w-full overflow-y-auto overflow-x-hidden px-5 py-10">
@@ -27,6 +26,7 @@ export const Timeline: FC<Props> = ({ posts }) => {
                 key={index}
                 user={item.user}
                 text={item.text}
+                createdAt={item.createdAt}
                 isMe={item.isMe}
               />
             );
