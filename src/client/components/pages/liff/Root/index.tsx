@@ -8,8 +8,8 @@ const PageComponent: NextPageWithLayout = () => {
   return (
     <div>
       <div>liff root</div>
-      <p>{LineUser?.userId}</p>
-      <p>{LineUser?.displayName}</p>
+      <p>{LineUser.userId || 'noId'}</p>
+      <p>{LineUser.displayName || 'noName'}</p>
     </div>
   );
 };
