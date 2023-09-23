@@ -6,10 +6,10 @@ import { Application } from '~/server/application';
 class lineWebhookApi {
   private _middleware: Middleware;
 
-  constructor() {
+  constructor(channelAccessToken: string, channelSecret: string) {
     this._middleware = middleware({
-      channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN!,
-      channelSecret: process.env.LINE_CHANNEL_SECRET!,
+      channelAccessToken,
+      channelSecret,
     });
   }
 
@@ -84,4 +84,7 @@ class lineWebhookApi {
   }
 }
 
-export const handler = new lineWebhookApi().handler;
+export const handler = new lineWebhookApi(
+  process.env.LINE_CHANNEL_ACCESS_TOKEN ?? '',
+  process.env.LINE_CHANNEL_SECRET ?? ''
+).handler;
