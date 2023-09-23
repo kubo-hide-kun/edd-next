@@ -9,7 +9,7 @@ const SimpleLayout: FC<
   return (
     <>
       <CommonHead pageTitle={pageTitle} />
-      <main className="relative flex w-screen flex-col items-center bg-white-salmon">
+      <main className="relative flex w-screen flex-col items-center bg-accent-primary-sub">
         <div
           className="relative w-full max-w-390"
           style={{
