@@ -20,6 +20,10 @@ export const CommonHead: FC<{
       <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="icon" href="/favicon.ico" />
       {isNoIndex && <meta name="robots" content="noindex" />}
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
+      />
 
       {/* Open Graph */}
       <meta property="og:title" content={pageTitle} />
