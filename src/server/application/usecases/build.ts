@@ -1,8 +1,8 @@
 import { Context } from '~/server/application/context';
-import { FindUserByLineIdUsecase } from '~/server/application/usecases/findUserByLineId';
+import { FindUserByLineUidUsecase } from '~/server/application/usecases/findUserByLineUid';
 
 export const build = (context: Readonly<Context>) => {
   return {
-    findUserByLineIdUsecase: FindUserByLineIdUsecase.create(context),
+    findUserByLineUidUsecase: FindUserByLineUidUsecase.create(context),
   };
 };

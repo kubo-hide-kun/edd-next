@@ -13,7 +13,7 @@ export interface GetApiInterface extends BaseGetApiInterface {
   // NOTE: このエンドポイントはサンプルなので実際には不要
   [GetApiInterface.PATHS.LineUser]: {
     query: {
-      lineId: string;
+      lineUid: string;
     };
     response: {
       user: UserEntity.Dto;
@@ -29,7 +29,7 @@ export interface GetApiInterface extends BaseGetApiInterface {
 
 export namespace GetApiInterface {
   export const PATHS = {
-    LineUser: '/api/user/line/[lineId]',
+    LineUser: '/api/user/line/[lineUid]',
     HealthCheck: '/api/development/health-check',
   } as const;
   export type PATHS = keyof typeof PATHS;
