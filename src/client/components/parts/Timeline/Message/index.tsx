@@ -42,7 +42,10 @@ export const Message: FC<Props> = ({ user, text, isMe = false }) => {
         <div
           className={classNames(
             'relative w-fit max-w-[80%] whitespace-pre-wrap rounded-[14px] bg-white px-13 py-4 text-sm text-surface-base-1',
-            isMe ? 'service-timeline-chat-right' : 'service-timeline-chat-left'
+            {
+              'service-timeline-chat-right': isMe,
+              'service-timeline-chat-left': !isMe,
+            }
           )}
         >
           {text}
