@@ -21,8 +21,7 @@ lineUserApi.individualConnectHandlers.get = async (request, response) => {
     return;
   }
 
-  const { findUserByLineUidUsecase } =
-    lineUserApi.application.usecases;
+  const { findUserByLineUidUsecase } = lineUserApi.application.usecases;
   const found = await findUserByLineUidUsecase.invoke(lineUid);
 
   response.status(200).json({
