@@ -27,7 +27,7 @@ const context = {
           findUnique: async (_conditions: unknown): Promise<PrismaUser> => {
             return {
               id: '001',
-              lineId: 'line_001',
+              lineUid: 'line_001',
               ableToReceiveMessage: false,
               approveUpdateTermsAt: now.toDate(),
               createdAt: now.toDate(),
