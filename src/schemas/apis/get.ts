@@ -1,15 +1,17 @@
 import { User } from '~/schemas/entities/User';
+import { ValueOf } from '~/types/object';
 
-interface BaseGetApiInterface {
-  [path: string]: {
+type BaseGetApiInterface = {
+  [path in ValueOf<typeof GetApiInterface.PATHS>]: {
     query: Record<string, unknown>;
     response: Record<string, unknown>;
     request?: undefined;
   };
-}
+};
 
 export interface GetApiInterface extends BaseGetApiInterface {
-  '/api/user/line/[lineId]': {
+  // NOTE: このエンドポイントはサンプルなので実際には不要
+  [GetApiInterface.PATHS.LineUser]: {
     query: {
       lineId: string;
     };
@@ -17,10 +19,18 @@ export interface GetApiInterface extends BaseGetApiInterface {
       user: User.Dto;
     };
   };
-  '/api/development/health-check': {
+  [GetApiInterface.PATHS.HealthCheck]: {
     query: {};
     response: {
       status: 'ok';
     };
   };
+}
+
+export namespace GetApiInterface {
+  export const PATHS = {
+    LineUser: '/api/user/line/[lineId]',
+    HealthCheck: '/api/development/health-check',
+  } as const;
+  export type PATHS = keyof typeof PATHS;
 }

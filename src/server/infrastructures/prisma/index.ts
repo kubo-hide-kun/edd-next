@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from '@prisma-generated';
 import type { Infrastructure } from '~/server/infrastructures';
-import type { KeyType } from '~/types/object';
+import type { ValueOf } from '~/types/object';
 
 export class PrimaInfrastructure {
   private _client: PrismaClient;
@@ -27,7 +27,7 @@ export class PrimaInfrastructure {
    * 一覧取得（一覧と件数を同時に取得する）
    */
   async customFindMany<
-    ModelName extends KeyType<{
+    ModelName extends ValueOf<{
       [K in keyof PrismaClient]: PrismaClient[K] extends {
         findMany: unknown;
         count: unknown;
