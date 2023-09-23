@@ -3,6 +3,7 @@ import { createSimpleLayoutGetter } from '~/client/components/layouts/Simple';
 import { Dropdown } from '~/client/components/parts/Dropdown';
 import { SearchInput } from '~/client/components/parts/SearchInput';
 import { Tab, DisplayStatus } from '~/client/components/parts/Tab';
+import { Timeline } from '~/client/components/parts/Timeline';
 import { NextPageWithLayout } from '~/types/next';
 import { InferComponentPropsType } from '~/types/react';
 
@@ -48,22 +49,160 @@ const PageComponent: NextPageWithLayout = () => {
   // eslint-disable-next-line no-console
   console.log(selectedOrderId);
 
+  const posts = [
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円 ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'くりち',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '水 \n -132円',
+    },
+    {
+      user: {
+        name: 'クボ太郎',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '高速代 +122円',
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'くりち',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '水 -132円',
+    },
+    {
+      user: {
+        name: 'クボ太郎',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '高速代 +122円',
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'くりち',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '水 -132円',
+    },
+    {
+      user: {
+        name: 'クボ太郎',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '高速代 +122円',
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'くりち',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '水 -132円',
+    },
+    {
+      user: {
+        name: 'クボ太郎',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '高速代 +122円',
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'くりち',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '水 -132円',
+    },
+    {
+      user: {
+        name: 'クボ太郎',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: '高速代 +122円',
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円',
+      isMe: true,
+    },
+  ];
+
   return (
-    <div className="px-24 py-28">
-      <div className="mb-16 flex h-134 w-full flex-col items-center justify-center rounded-lg bg-accent-primary text-white">
+    <div className="flex h-full flex-col gap-16 px-24 py-28">
+      <div className="flex h-134 w-full shrink-0 flex-col items-center justify-center rounded-lg bg-accent-primary text-white">
         <h1 className="mb-16 text-2xl">EDDハッカソン</h1>
         <p className="text-xs">貸し借り収支</p>
         <p className="text-2xl">+12,300円</p>
       </div>
       <Tab
-        className="mb-16"
         displayStatus={displayStatus}
         onChange={handleTabChange}
+        className="shrink-0"
       />
       <div className="flex items-center justify-between space-x-20">
         <SearchInput className="w-224" />
         <Dropdown items={ORDER_ITEMS} onChange={handleOrderChange} />
       </div>
+      <Timeline posts={posts} />
     </div>
   );
 };
