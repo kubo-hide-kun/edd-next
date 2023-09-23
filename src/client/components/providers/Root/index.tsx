@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
-import { LiffProvider } from '../Liff';
+import { LiffProvider } from '~/client/components/providers/Liff';
 import { NextPageWithLayout } from '~/types/next';
 
 /**

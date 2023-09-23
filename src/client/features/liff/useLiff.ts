@@ -56,12 +56,7 @@ export const useLiff = (
       });
     } catch (error) {
       // eslint-disable-next-line no-console
-      setLiffUser({
-        isLoggedIn: false,
-        userId: '',
-        idToken: '',
-        displayName: '',
-      });
+      console.error(error);
     }
   }, [initConfig, setLiffUser]);
 
@@ -71,7 +66,12 @@ export const useLiff = (
 
   const logout = () => {
     liff.logout();
-    setLiffUser(null);
+    setLiffUser({
+      isLoggedIn: false,
+      userId: '',
+      idToken: '',
+      displayName: '',
+    });
   };
 
   const closeWindow = () => {
