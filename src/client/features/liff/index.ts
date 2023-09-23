@@ -1,9 +1,4 @@
-import liff from '@line/liff';
 import { Liff } from '@line/liff/exports';
-import { LiffMockPlugin } from '@line/liff-mock';
-
-const liffMockPlugin = new LiffMockPlugin();
-liff.use(liffMockPlugin);
 
 export class LiffUser {
   isLoggedIn: boolean = false;
@@ -26,12 +21,12 @@ export class LiffUser {
 
   private async _init() {
     await this._liff.init(
-      this._config,
+      { ...this._config },
       async () => {
-        this.isLoggedIn = liff.isLoggedIn();
-        this.idToken = liff.getIDToken();
+        this.isLoggedIn = this._liff.isLoggedIn();
+        this.idToken = this._liff.getIDToken();
 
-        const profile = await liff.getProfile();
+        const profile = await this._liff.getProfile();
         this.userId = profile.userId;
         this.displayName = profile.displayName;
         this.pictureUrl = profile.pictureUrl;

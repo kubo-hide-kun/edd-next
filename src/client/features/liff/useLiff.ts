@@ -8,13 +8,13 @@ const liffUserState = atom<LiffUser | null>({
   default: null,
 });
 
-export const useLiff = (config: Parameters<typeof liff.init>[0]) => {
+export const useLiff = (initConfig: Parameters<typeof liff.init>[0]) => {
   const [liffUser, setLiffUser] = useRecoilState(liffUserState);
 
   const initialize = useCallback(async () => {
-    const liffUser = await LiffUser.create(liff, config);
+    const liffUser = await LiffUser.create(liff, initConfig);
     setLiffUser(liffUser);
-  }, [config, setLiffUser]);
+  }, [initConfig, setLiffUser]);
 
   return {
     liffUser,
