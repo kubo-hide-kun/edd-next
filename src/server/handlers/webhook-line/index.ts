@@ -3,7 +3,7 @@ import { Middleware } from '@line/bot-sdk/lib/middleware';
 import { NextApiHandler } from 'next';
 import { Application } from '~/server/application';
 
-class lineWebhookApi {
+class LineWebhookController {
   private _middleware: Middleware;
 
   constructor(channelAccessToken: string, channelSecret: string) {
@@ -84,7 +84,7 @@ class lineWebhookApi {
   }
 }
 
-export const handler = new lineWebhookApi(
+export const handler = new LineWebhookController(
   process.env.LINE_CHANNEL_ACCESS_TOKEN ?? '',
   process.env.LINE_CHANNEL_SECRET ?? ''
 ).handler;
