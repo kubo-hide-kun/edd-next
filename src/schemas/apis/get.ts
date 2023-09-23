@@ -1,4 +1,4 @@
-import { User } from '~/schemas/entities/User';
+import { UserEntity } from '~/domains/models/User';
 import { ValueOf } from '~/types/object';
 
 type BaseGetApiInterface = {
@@ -16,7 +16,7 @@ export interface GetApiInterface extends BaseGetApiInterface {
       lineId: string;
     };
     response: {
-      user: User.Dto;
+      user: UserEntity.Dto;
     };
   };
   [GetApiInterface.PATHS.HealthCheck]: {

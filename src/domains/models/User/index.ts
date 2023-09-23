@@ -1,7 +1,7 @@
-import { Entity } from '~/schemas/entities';
+import { Entity } from '~/domains/models';
 import { dayjs, createSafeDayjs } from '~/utils/dayjs';
 
-export class User extends Entity<User.Dto> {
+export class UserEntity extends Entity<UserEntity.Dto> {
   id: string;
   lineId: string;
   lineDisplayName?: string;
@@ -10,7 +10,7 @@ export class User extends Entity<User.Dto> {
   createdAt: dayjs.Dayjs;
   updatedAt: dayjs.Dayjs;
 
-  constructor(dto: User.Dto) {
+  constructor(dto: UserEntity.Dto) {
     super();
     this.id = dto.id;
     this.lineId = dto.lineId;
@@ -31,12 +31,12 @@ export class User extends Entity<User.Dto> {
     this.updatedAt = updatedAt;
   }
 
-  static create(...params: ConstructorParameters<typeof User>) {
-    const entity = new User(...params);
+  static create(...params: ConstructorParameters<typeof UserEntity>) {
+    const entity = new UserEntity(...params);
     return entity;
   }
 
-  public get dto(): User.Dto {
+  public get dto(): UserEntity.Dto {
     return {
       id: this.id,
       lineId: this.lineId,
@@ -48,7 +48,7 @@ export class User extends Entity<User.Dto> {
     };
   }
 
-  public get nonSensitiveDto(): User.Dto {
+  public get nonSensitiveDto(): UserEntity.Dto {
     return {
       ...this.dto,
       lineDisplayName: '*',
@@ -56,7 +56,7 @@ export class User extends Entity<User.Dto> {
   }
 }
 
-export namespace User {
+export namespace UserEntity {
   export type Dto = {
     id: string;
     lineId: string;
