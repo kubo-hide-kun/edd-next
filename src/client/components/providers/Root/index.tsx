@@ -1,8 +1,10 @@
 import { AppProps } from 'next/app';
-import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { FC, ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
+import { LiffProvider } from '~/client/components/providers/Liff';
 import { NextPageWithLayout } from '~/types/next';
 
 /**
@@ -11,6 +13,22 @@ import { NextPageWithLayout } from '~/types/next';
  */
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
+};
+
+const withLiffProvider = (Component: ReactNode, liffId: string | undefined) => {
+  return <LiffProvider liffId={liffId}>{Component}</LiffProvider>;
+};
+
+const WithConditionalProviders: FC = ({ children }) => {
+  const router = useRouter();
+  const path = router.asPath;
+  let component = children;
+
+  if (path.includes('liff')) {
+    component = withLiffProvider(component, process.env.NEXT_PUBLIC_LIFF_ID);
+  }
+
+  return <>{component}</>;
 };
 
 /**
@@ -31,7 +49,9 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
           revalidateOnReconnect: false,
         }}
       >
-        <Component {...pageProps} />
+        <WithConditionalProviders>
+          <Component {...pageProps} />
+        </WithConditionalProviders>
       </SWRConfig>
     </RecoilRoot>
   );
