@@ -29,7 +29,7 @@ export class HistoryEntity extends Entity<HistoryEntity.Dto> {
     this.createdAt = createdAt;
 
     const updatedAt = createSafeDayjs(dto.updatedAt);
-    if (!updatedAt.isValid()) {
+    if (!createdAt) {
       throw new Error(`invalid updatedAt ${dto.updatedAt}`);
     }
     this.updatedAt = updatedAt;
