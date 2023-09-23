@@ -28,11 +28,11 @@ export class UserRepository extends Repository {
       return null;
     }
 
-    const { displayName } = await lineBot.client.getProfile(found.lineId);
+    const { displayName } = await lineBot.client.getProfile(found.lineUid);
 
     const user = UserEntity.create({
       id: found.id,
-      lineId: found.lineId,
+      lineId: found.lineUid,
       lineDisplayName: displayName,
       ableToReceiveMessage: found.ableToReceiveMessage,
       approveUpdateTermsAt: found.approveUpdateTermsAt.toString(),
