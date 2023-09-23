@@ -9,7 +9,7 @@ export const SearchInput: FC<{
   return (
     <div
       className={classNames(
-        'flex h-28 w-full items-center rounded-lg bg-gray-light px-12',
+        'flex h-28 w-full items-center rounded-lg border border-gray-light bg-gray-light px-12 focus-within:border-accent-primary',
         className
       )}
     >
@@ -17,7 +17,7 @@ export const SearchInput: FC<{
       <input
         type="search"
         name="search"
-        className="my-8 ml-8 border-l border-surface-base-3 bg-gray-light pl-8 text-xs"
+        className="my-8 ml-8 w-full border-l border-surface-base-3 bg-gray-light pl-8 text-xs focus:outline-none"
         onChange={onChange}
         placeholder="検索"
       />
