@@ -16,7 +16,7 @@ export class UserRepository extends Repository {
    * @description ユーザーを 1 件取得する
    */
   public async getOne(
-    conditions: Partial<Pick<UserEntity.Dto, 'id' | 'lineId'>>
+    conditions: Partial<Pick<UserEntity.Dto, 'id' | 'lineUid'>>
   ) {
     const { lineBot, prisma } = this.context.infrastructures;
 
@@ -32,7 +32,7 @@ export class UserRepository extends Repository {
 
     const user = UserEntity.create({
       id: found.id,
-      lineId: found.lineUid,
+      lineUid: found.lineUid,
       lineDisplayName: displayName,
       ableToReceiveMessage: found.ableToReceiveMessage,
       approveUpdateTermsAt: found.approveUpdateTermsAt.toString(),

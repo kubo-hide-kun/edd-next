@@ -3,7 +3,7 @@ import { dayjs, createSafeDayjs } from '~/utils/dayjs';
 
 export class UserEntity extends Entity<UserEntity.Dto> {
   id: string;
-  lineId: string;
+  lineUid: string;
   lineDisplayName?: string;
   ableToReceiveMessage: boolean;
   approveUpdateTermsAt?: dayjs.Dayjs;
@@ -13,7 +13,7 @@ export class UserEntity extends Entity<UserEntity.Dto> {
   constructor(dto: UserEntity.Dto) {
     super();
     this.id = dto.id;
-    this.lineId = dto.lineId;
+    this.lineUid = dto.lineUid;
     this.lineDisplayName = dto.lineDisplayName;
     this.ableToReceiveMessage = dto.ableToReceiveMessage;
     this.approveUpdateTermsAt = createSafeDayjs(dto.approveUpdateTermsAt);
@@ -39,7 +39,7 @@ export class UserEntity extends Entity<UserEntity.Dto> {
   public get dto(): UserEntity.Dto {
     return {
       id: this.id,
-      lineId: this.lineId,
+      lineUid: this.lineUid,
       lineDisplayName: this.lineDisplayName,
       ableToReceiveMessage: this.ableToReceiveMessage,
       approveUpdateTermsAt: this.approveUpdateTermsAt?.toISOString(),
@@ -59,7 +59,7 @@ export class UserEntity extends Entity<UserEntity.Dto> {
 export namespace UserEntity {
   export type Dto = {
     id: string;
-    lineId: string;
+    lineUid: string;
     lineDisplayName?: string;
     ableToReceiveMessage: boolean;
     approveUpdateTermsAt?: string;

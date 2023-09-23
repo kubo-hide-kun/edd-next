@@ -11,7 +11,7 @@ const context = {
   infrastructures: {
     lineBot: {
       client: {
-        getProfile: async (_lineId: string): Promise<LineUserProfile> => {
+        getProfile: async (_lineUid: string): Promise<LineUserProfile> => {
           return {
             displayName: 'displayName',
             userId: 'line_001',
@@ -50,7 +50,7 @@ describe('UserRepository', () => {
 
     expect(result.dto).toEqual({
       id: '001',
-      lineId: 'line_001',
+      lineUid: 'line_001',
       lineDisplayName: 'displayName',
       ableToReceiveMessage: false,
       approveUpdateTermsAt: now.toISOString(),
@@ -58,14 +58,14 @@ describe('UserRepository', () => {
       updatedAt: now.toISOString(),
     });
   });
-  test('LineID で getOne が実行できる', async () => {
+  test('LineUID で getOne が実行できる', async () => {
     const result = await userRepository.getOne({
-      lineId: 'line_001',
+      lineUid: 'line_001',
     });
 
     expect(result.dto).toEqual({
       id: '001',
-      lineId: 'line_001',
+      lineUid: 'line_001',
       lineDisplayName: 'displayName',
       ableToReceiveMessage: false,
       approveUpdateTermsAt: now.toISOString(),
