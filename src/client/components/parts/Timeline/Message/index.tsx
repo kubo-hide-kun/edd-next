@@ -16,9 +16,10 @@ type Props = {
 export const Message: FC<Props> = ({ user, text, isMe = false }) => {
   return (
     <div
-      className={classNames('flex gap-5', [
-        isMe ? 'flex-row-reverse' : 'items-start',
-      ])}
+      className={classNames('flex gap-5', {
+        'flex-row-reverse': isMe,
+        'items-start': !isMe,
+      })}
     >
       <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full">
         <Image
@@ -30,9 +31,10 @@ export const Message: FC<Props> = ({ user, text, isMe = false }) => {
         />
       </div>
       <div
-        className={classNames('flex w-full flex-col gap-3', [
-          isMe ? 'items-end' : 'items-start',
-        ])}
+        className={classNames('flex w-full flex-col gap-3', {
+          'items-end': isMe,
+          'items-start': !isMe,
+        })}
       >
         <span className="ml-5 py-2 text-xs text-surface-base-2">
           {user.name}
