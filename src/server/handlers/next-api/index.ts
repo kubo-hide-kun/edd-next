@@ -42,7 +42,6 @@ export abstract class Api<PATH extends string, INDIVIDUAL_PATH extends string> {
    *  // ...
    * }
    */
-
   public connectHandlers: ApiHandlers<PATH> = {
     get: null,
     post: null,
