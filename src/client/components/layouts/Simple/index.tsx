@@ -16,7 +16,7 @@ const SimpleLayout: FC<
             boxShadow: '0px 1px 44px 0px #0000001A',
           }}
         >
-          <div className="relative min-h-screen w-full overflow-hidden bg-white">
+          <div className="relative h-screen min-h-screen w-full overflow-hidden bg-white">
             {children}
           </div>
         </div>

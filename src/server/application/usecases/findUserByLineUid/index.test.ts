@@ -1,7 +1,7 @@
 import { describe, test, expect } from '@jest/globals';
 import { UserEntity } from '~/domains/models/User';
 import { Context } from '~/server/application/context';
-import { FindUserByLineIdUsecase } from '~/server/application/usecases/findUserByLineId';
+import { FindUserByLineUidUsecase } from '~/server/application/usecases/findUserByLineUid';
 import { dayjs } from '~/utils/dayjs';
 
 const now = dayjs('2023-09-03T11:13:00.000Z').tz();
@@ -9,10 +9,10 @@ const now = dayjs('2023-09-03T11:13:00.000Z').tz();
 const context = {
   repositories: {
     user: {
-      getOne: async (_lineId: string): Promise<UserEntity> => {
+      getOne: async (_lineUid: string): Promise<UserEntity> => {
         const user = UserEntity.create({
           id: '001',
-          lineId: 'line_001',
+          lineUid: 'line_001',
           ableToReceiveMessage: true,
           approveUpdateTermsAt: now.toISOString(),
           createdAt: now.toISOString(),
@@ -24,15 +24,15 @@ const context = {
   },
 } as unknown as Context;
 
-const findUserByLineId = FindUserByLineIdUsecase.create(context);
+const findUserByLineUid = FindUserByLineUidUsecase.create(context);
 
-describe('FindUserByLineIdUsecase', () => {
-  test('FindUserByLineIdUsecase が実行できる', async () => {
-    const result = await findUserByLineId.invoke('line_001');
+describe('FindUserByLineUidUsecase', () => {
+  test('FindUserByLineUidUsecase が実行できる', async () => {
+    const result = await findUserByLineUid.invoke('line_001');
 
     expect(result.dto).toEqual({
       id: '001',
-      lineId: 'line_001',
+      lineUid: 'line_001',
       ableToReceiveMessage: true,
       approveUpdateTermsAt: now.toISOString(),
       createdAt: now.toISOString(),

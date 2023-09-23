@@ -1,17 +1,17 @@
 import { UserEntity } from '~/domains/models/User';
 import { Usecase } from '~/server/application/usecases';
 
-export namespace FindUserByLineIdUsecase {
+export namespace FindUserByLineUidUsecase {
   export const create: Usecase.Creator<UserEntity, string> = (context) => {
     const { user: userRepository } = context.repositories;
 
     const usecase = Usecase.create<UserEntity, string>(
-      'findUserByLineId',
+      'findUserByLineUid',
       false,
-      async (lineId) => {
-        const user = await userRepository.getOne({ lineId });
+      async (lineUid) => {
+        const user = await userRepository.getOne({ lineUid });
         if (!user) {
-          Usecase.throwException('user not found', { lineId });
+          Usecase.throwException('user not found', { lineUid });
         }
         return user;
       }
