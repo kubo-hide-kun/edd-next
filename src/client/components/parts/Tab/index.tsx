@@ -30,7 +30,7 @@ export const Tab: FC<{
   return (
     <div
       className={classNames(
-        'service-tab flex h-40 w-full items-center justify-around rounded-lg border-2 border-accent-primary',
+        'service-tab flex h-40 w-full items-center rounded-lg border-2 border-accent-primary',
         className
       )}
       data-status={displayStatus}
@@ -40,14 +40,15 @@ export const Tab: FC<{
       onKeyDown={handleKeyDown}
     >
       <button
-        className={classNames('z-10 transition-all duration-500', {
+        className={classNames('z-10 w-1/2 transition-all duration-500', {
           'text-white': displayStatus === DisplayStatus.TimeLine,
+          'text-surface-base-2': displayStatus === DisplayStatus.Member,
         })}
       >
         タイムライン
       </button>
       <button
-        className={classNames('z-10 transition-all duration-500', {
+        className={classNames('z-10 w-1/2 transition-all duration-500', {
           'text-white': displayStatus === DisplayStatus.Member,
           'text-surface-base-2': displayStatus === DisplayStatus.TimeLine,
         })}
