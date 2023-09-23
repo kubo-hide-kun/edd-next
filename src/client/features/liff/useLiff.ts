@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { atom, useRecoilState } from 'recoil';
 import { LiffUser } from '~/client/features/liff';
 
-const liffUserState = atom<LiffUser | null>({
+export const liffUserState = atom<LiffUser | null>({
   key: 'liffUserState',
   default: null,
 });
