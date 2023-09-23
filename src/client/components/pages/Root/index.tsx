@@ -58,6 +58,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: 'ガソリン代 +12432円 ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -66,6 +67,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: '水 \n -132円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -73,6 +75,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: '高速代 +122円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -80,6 +83,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: 'ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -87,7 +91,8 @@ const PageComponent: NextPageWithLayout = () => {
         name: 'simo',
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
-      text: 'ガソリン代 +12432円',
+      text: 'ガソリン代 +12432円 ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -95,7 +100,8 @@ const PageComponent: NextPageWithLayout = () => {
         name: 'くりち',
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
-      text: '水 -132円',
+      text: '水 \n -132円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -103,6 +109,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: '高速代 +122円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -110,6 +117,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: 'ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -117,29 +125,8 @@ const PageComponent: NextPageWithLayout = () => {
         name: 'simo',
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
-      text: 'ガソリン代 +12432円',
-      isMe: true,
-    },
-    {
-      user: {
-        name: 'くりち',
-        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
-      },
-      text: '水 -132円',
-    },
-    {
-      user: {
-        name: 'クボ太郎',
-        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
-      },
-      text: '高速代 +122円',
-    },
-    {
-      user: {
-        name: 'simo',
-        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
-      },
-      text: 'ガソリン代 +12432円',
+      text: 'ガソリン代 +12432円 ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -147,7 +134,8 @@ const PageComponent: NextPageWithLayout = () => {
         name: 'くりち',
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
-      text: '水 -132円',
+      text: '水 \n -132円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -155,6 +143,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: '高速代 +122円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -162,6 +151,16 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: 'ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
+      isMe: true,
+    },
+    {
+      user: {
+        name: 'simo',
+        icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
+      },
+      text: 'ガソリン代 +12432円 ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
     {
@@ -169,7 +168,8 @@ const PageComponent: NextPageWithLayout = () => {
         name: 'くりち',
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
-      text: '水 -132円',
+      text: '水 \n -132円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -177,6 +177,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: '高速代 +122円',
+      createdAt: '2023/04/32 12:32:43',
     },
     {
       user: {
@@ -184,6 +185,7 @@ const PageComponent: NextPageWithLayout = () => {
         icon: 'https://avatars.githubusercontent.com/u/65708479?v=4',
       },
       text: 'ガソリン代 +12432円',
+      createdAt: '2023/04/32 12:32:43',
       isMe: true,
     },
   ];
@@ -225,8 +227,8 @@ const PageComponent: NextPageWithLayout = () => {
   ];
 
   return (
-    <div className="flex h-full flex-col gap-16 px-24 py-28">
-      <div className="flex h-134 w-full shrink-0 flex-col items-center justify-center rounded-lg bg-accent-primary text-white">
+    <div className="flex h-full flex-col gap-16 px-16 py-14">
+      <div className="flex h-134 w-full shrink-0 flex-col items-center justify-center rounded-2xl bg-accent-primary text-white">
         <h1 className="mb-16 text-2xl">EDDハッカソン</h1>
         <p className="text-xs">貸し借り収支</p>
         <p className="text-2xl">+12,300円</p>
@@ -236,14 +238,14 @@ const PageComponent: NextPageWithLayout = () => {
         onChange={handleTabChange}
         className="shrink-0"
       />
-      <div className="flex items-center justify-between space-x-20">
+      <div className="flex items-center justify-between space-x-20 px-10">
         <SearchInput className="w-224" />
         <Dropdown items={ORDER_ITEMS} onChange={handleOrderChange} />
       </div>
       <div className="relative h-full w-full overflow-hidden">
         <div
           className={classNames(
-            'absolute left-0 top-0 flex h-full w-[calc(var(--history-main-content-width)*2)] transition-transform duration-200 [--history-main-content-width:342px]',
+            'absolute left-0 top-0 flex h-full w-[calc(var(--history-main-content-width)*2)] transition-transform duration-200 [--history-main-content-width:calc(100vw-32px)]',
             {
               'translate-x-0': displayStatus === DisplayStatus.TimeLine,
               '-translate-x-[var(--history-main-content-width)]':

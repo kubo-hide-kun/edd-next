@@ -1,3 +1,10 @@
 span {
   line-height: 1;
 }
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

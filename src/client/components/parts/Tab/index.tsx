@@ -30,7 +30,7 @@ export const Tab: FC<{
   return (
     <div
       className={classNames(
-        'service-tab flex h-40 w-full items-center rounded-lg border-2 border-accent-primary',
+        'service-tab flex h-40 w-full select-none items-center rounded-xl border-2 border-accent-primary',
         className
       )}
       data-status={displayStatus}
