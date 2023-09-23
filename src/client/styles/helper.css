@@ -32,7 +32,7 @@
 
 .service-timeline-chat-left::before {
   content: '';
-  fill: var(--White, #fff);
+  fill: var(--white-default);
   width: 10.5px;
   height: 11.5px;
   flex-shrink: 0;
@@ -44,7 +44,7 @@
 
 .service-timeline-chat-right::before {
   content: '';
-  fill: var(--White, #fff);
+  fill: var(--white-default);
   width: 10.5px;
   height: 11.5px;
   flex-shrink: 0;
