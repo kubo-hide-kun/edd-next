@@ -1,2 +1,2 @@
-import { RootPage } from '~/client/components/pages/Root';
-export default RootPage;
+import { WebRootPage } from '~/client/components/pages/Root';
+export default WebRootPage;

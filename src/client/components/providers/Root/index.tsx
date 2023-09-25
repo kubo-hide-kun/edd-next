@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { RecoilRoot } from 'recoil';
 import { SWRConfig } from 'swr';
+import { LiffProvider } from '~/client/components/providers/Liff';
 import { NextPageWithLayout } from '~/types/next';
 
 /**
@@ -31,7 +32,9 @@ export const RootProvider: FC<AppPropsWithLayout> = ({
           revalidateOnReconnect: false,
         }}
       >
-        <Component {...pageProps} />
+        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID}>
+          <Component {...pageProps} />
+        </LiffProvider>
       </SWRConfig>
     </RecoilRoot>
   );

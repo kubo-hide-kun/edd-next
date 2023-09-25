@@ -263,4 +263,4 @@ const PageComponent: NextPageWithLayout = () => {
 
 PageComponent.getLayout = createSimpleLayoutGetter();
 
-export const RootPage = PageComponent;
+export const WebRootPage = PageComponent;

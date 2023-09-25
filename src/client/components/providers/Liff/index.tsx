@@ -21,12 +21,12 @@ const LiffScript: FC<{
  */
 export const LiffProvider: FC<
   PropsWithChildren<{
-    liifId: string;
+    liffId: string;
   }>
-> = ({ children, liifId }) => {
+> = ({ children, liffId }) => {
   return (
     <>
-      <LiffScript liffId={liifId} />
+      <LiffScript liffId={liffId} />
       {children}
     </>
   );
